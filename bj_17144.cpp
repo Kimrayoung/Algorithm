@@ -33,20 +33,66 @@ void makeDust(int y, int x) {
 void cleanDust(int y, int x, int dir) {
     if(dir == 0) {
         // 공기청정기의 윗 부분 (반시계방향)
-        for (int i = y - 1; i > 0; i--) a[i][0] = a[i - 1][0]; // 위로 이동
+        for (int i = y - 1; i > 0; i--) a[i][0] = a[i - 1][0]; // 아래로 이동
         for (int i = 0; i < c - 1; i++) a[0][i] = a[0][i + 1]; // 오른쪽으로 이동
-        for (int i = 0; i < y; i++) a[i][c - 1] = a[i + 1][c - 1]; // 아래로 이동
+        for (int i = 0; i < y; i++) a[i][c - 1] = a[i + 1][c - 1]; // 위로 이동
         for (int i = c - 1; i > 1; i--) a[y][i] = a[y][i - 1]; // 왼쪽으로 이동
         a[y][1] = 0; // 청정기 근처는 먼지가 없다
     } else {
         // 공기청정기의 아랫 부분 (시계방향)
-        for (int i = y + 1; i < r - 1; i++) a[i][0] = a[i + 1][0]; // 아래로 이동
+        for (int i = y + 1; i < r - 1; i++) a[i][0] = a[i + 1][0]; // 위로 이동
         for (int i = 0; i < c - 1; i++) a[r - 1][i] = a[r - 1][i + 1]; // 오른쪽으로 이동
-        for (int i = r - 1; i > y; i--) a[i][c - 1] = a[i - 1][c - 1]; // 위로 이동
+        for (int i = r - 1; i > y; i--) a[i][c - 1] = a[i - 1][c - 1]; // 아래로 이동
         for (int i = c - 1; i > 1; i--) a[y][i] = a[y][i - 1]; // 왼쪽으로 이동
         a[y][1] = 0; // 청정기 근처는 먼지가 없다
     }
 }
+
+// void cleanDust(int y, int x, int dir) {
+//     if(dir == 0) {
+//         // x: 1 ~ c(->)
+//         int temp = a[y][c - 1];
+//         for(int i = c - 1; i > 1; i--) {
+//             a[y][i] = a[y][i - 1];
+//         }
+//         // 위쪽
+//         int temp2 = a[0][c - 1];
+//         for(int i = 0; i < y; i++) {
+//             if(i == y - 1) a[i][c - 1] = temp;
+//             else a[i][c - 1] = a[i + 1][c - 1]; 
+//         }
+//         // 왼쪽
+//         temp = a[0][0];
+//         for(int i = 0; i < c - 1; i++) {
+//             if(i == c - 2) a[0][i] = temp2;
+//             else a[0][i] = a[0][i + 1];
+//         }
+//         for(int i = y - 1; i > 0; i--) {
+//             if(i == 1) a[i][0] = temp;
+//             else a[i][0] = a[i - 1][0];
+//         }
+//     } else {
+//         int temp = a[y][c - 1];
+//         for(int i = c - 1; i > x; i--) {
+//             a[y][i] = a[y][i - 1];
+//         }
+//         //down
+//         int temp2 = a[r - 1][c - 1];
+//         for(int i = r - 1; i > y; i--) {
+//             if(i == y + 1) a[i][c - 1] = temp;
+//             else a[i][c - 1] = a[i - 1][c - 1];
+//         }
+//         temp = a[r - 1][0];
+//         for(int i = 0; i < c - 1; i++) {
+//             if(i == c - 2) a[r - 1][i] = temp2;
+//             else a[r - 1][i] = a[r - 1][i + 1];
+//         }
+//         for(int i = r - 1; i > y; i--) {
+//             if(i == y + 1) a[i][0] = temp;
+//             else a[i][0] = a[i - 1][0]; 
+//         }
+//     }
+// }
 
 int main() {
 	cin >> r >> c >> t;
