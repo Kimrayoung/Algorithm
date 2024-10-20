@@ -37,9 +37,9 @@ int main() {
             cin >> a[i][j];
         }
     }
-    // 0은 가로로 이동
+    // 1은 가로로 이동
     // dfs(1, 2, 0);
-    dfs(1, 2, 1)
+    dfs(1, 2, 1);
     cout << ret;
     return 0;
 }
