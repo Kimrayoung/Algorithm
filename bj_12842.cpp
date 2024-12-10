@@ -4,6 +4,8 @@ using namespace std;
 int dp1[1000000], dp2[1000000],ret = 987654321, n;
 vector<int> path;
 
+// 틀린 풀이 - prev를 저장해야 하고 num과 cnt를 인수로 넘겨줘야 한다는 것 까지 생각
+// 
 // void go(int num, int cnt, int prev) {
 //     cout << "num: " << num << "cnt: " << cnt << "\n";
 //     if (num == 1) {
@@ -75,7 +77,6 @@ int main() {
 
 // int main() {
 //     cin >> n;
-//     // go(n,0);
 //     fill(dp1, dp1 + n + 1, INT_MAX);
 //     dp1[1] = 0;
 //     for(int i = 2; i <= n; i++) {
