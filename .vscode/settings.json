@@ -1,6 +1,16 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "vector": "cpp",
+        "map": "cpp",
+        "__bit_reference": "cpp",
+        "deque": "cpp",
+        "functional": "cpp",
+        "list": "cpp",
+        "set": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }
